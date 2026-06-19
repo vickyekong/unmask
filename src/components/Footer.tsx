@@ -34,11 +34,7 @@ export function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className={`museum-label text-[0.6rem] transition-colors hover:text-burnished-gold ${
-                      link.href === "/moodboard"
-                        ? "text-burnished-gold/60"
-                        : "text-aged-paper/40"
-                    }`}
+                    className="museum-label text-[0.6rem] text-aged-paper/40 transition-colors hover:text-burnished-gold"
                   >
                     {link.label}
                   </a>

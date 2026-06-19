@@ -63,9 +63,9 @@ export function Navigation() {
             <li className="shrink-0">
               <Link
                 href="/moodboard"
-                className="nav-link text-burnished-gold/70 transition-colors hover:text-burnished-gold border border-burnished-gold/25 px-2 py-1 whitespace-nowrap"
+                className="nav-link text-aged-paper/50 transition-colors hover:text-burnished-gold whitespace-nowrap"
               >
-                Mood
+                Mood Board
               </Link>
             </li>
           </ul>
@@ -139,7 +139,7 @@ export function Navigation() {
             <li>
               <Link
                 href="/moodboard"
-                className={`museum-label ${isMoodboard ? "text-burnished-gold" : "text-aged-paper/70 hover:text-burnished-gold"}`}
+                className="museum-label text-aged-paper/70 hover:text-burnished-gold"
                 onClick={() => setMenuOpen(false)}
               >
                 Mood Board
