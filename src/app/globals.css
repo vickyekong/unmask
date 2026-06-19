@@ -161,12 +161,116 @@ body {
   }
 }
 
+@keyframes dust-float {
+  0%,
+  100% {
+    transform: translate(0, 0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate(12px, -30px);
+    opacity: 0.35;
+  }
+  90% {
+    opacity: 0.1;
+  }
+}
+
+@keyframes reveal-line {
+  from {
+    transform: scaleX(0);
+  }
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.dust-mote {
+  animation: dust-float 10s ease-in-out infinite;
+  opacity: 0;
+}
+
 .candle-glow {
   animation: flicker 4s ease-in-out infinite;
 }
 
 .float-symbol {
   animation: drift 12s ease-in-out infinite;
+}
+
+/* Literary journal entry */
+.journal-entry {
+  background:
+    linear-gradient(90deg, rgba(200, 155, 60, 0.08) 0px, rgba(200, 155, 60, 0.08) 1px, transparent 1px),
+    rgba(15, 23, 32, 0.4);
+  background-size: 100% 2rem;
+  border-left: 2px solid rgba(200, 155, 60, 0.2);
+}
+
+/* Museum exhibit placard */
+.exhibit-placard {
+  background: rgba(15, 23, 32, 0.5);
+  border: 1px solid rgba(200, 155, 60, 0.15);
+  position: relative;
+}
+
+.exhibit-placard::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, rgba(200, 155, 60, 0.4), transparent);
+}
+
+/* Sealed letter */
+.sealed-letter {
+  background:
+    url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E"),
+    linear-gradient(180deg, rgba(242, 233, 220, 0.04) 0%, transparent 100%);
+  border: 1px solid rgba(200, 155, 60, 0.2);
+}
+
+/* Timeline spine for How To Play */
+.archive-timeline {
+  position: relative;
+}
+
+.archive-timeline::before {
+  content: "";
+  position: absolute;
+  left: 1.25rem;
+  top: 0;
+  bottom: 0;
+  width: 1px;
+  background: linear-gradient(
+    180deg,
+    transparent,
+    rgba(200, 155, 60, 0.3) 10%,
+    rgba(200, 155, 60, 0.3) 90%,
+    transparent
+  );
+}
+
+@media (min-width: 1024px) {
+  .archive-timeline::before {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+
+/* Review clipping */
+.review-clipping {
+  transform: rotate(-0.5deg);
+  box-shadow: 2px 3px 12px rgba(62, 46, 35, 0.15);
+}
+
+.review-clipping:nth-child(even) {
+  transform: rotate(0.4deg);
 }
 
 /* Scrollbar */
@@ -243,4 +347,22 @@ body {
   letter-spacing: 0.25em;
   text-transform: uppercase;
   color: rgba(200, 155, 60, 0.7);
+}
+
+/* Identity card — matches physical design reference */
+.identity-card-front {
+  border: 1.5px solid rgba(15, 23, 32, 0.85);
+  box-shadow:
+    inset 0 0 0 3px rgba(200, 155, 60, 0.12),
+    0 8px 32px rgba(62, 46, 35, 0.15);
+}
+
+.identity-card-back {
+  border: 1.5px solid rgba(200, 155, 60, 0.35);
+  box-shadow:
+    inset 0 0 0 3px rgba(200, 155, 60, 0.08),
+    0 8px 32px rgba(0, 0, 0, 0.4);
+  background:
+    radial-gradient(ellipse at center, rgba(200, 155, 60, 0.06) 0%, transparent 60%),
+    var(--deep-ink);
 }

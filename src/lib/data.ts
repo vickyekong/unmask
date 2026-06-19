@@ -1,57 +1,65 @@
+export const brandTagline = "Reveal · Fate · Survive";
+
 export const cards = [
+  {
+    id: "the-villain",
+    title: "The Villain",
+    subtitle: "Archetype",
+    description:
+      "I am ambitious and cunning. My strength is strategy, but my weakness is overconfidence.",
+    passiveEffect:
+      "Once exposed, the opposing circle loses momentum — the room reads your intent before you speak it.",
+    featured: true,
+  },
   {
     id: "the-archivist",
     title: "The Archivist",
-    archetype: "Keeper of Forgotten Narratives",
-    frontSymbol: "◈",
+    subtitle: "Archetype",
     description:
-      "You catalog the unspoken — the stories people tell themselves in silence. Your gift is memory, your burden is knowing what others wish to forget.",
-    prompt: "What truth have you preserved that no one asked you to keep?",
+      "I preserve what others forget. My strength is memory, but my weakness is holding too tightly to the past.",
+    passiveEffect:
+      "When revealed, you may recall one detail from earlier in the circle that others have overlooked.",
+    featured: false,
   },
   {
     id: "the-mirror",
     title: "The Mirror",
-    archetype: "Reflector of Hidden Selves",
-    frontSymbol: "◇",
+    subtitle: "Archetype",
     description:
-      "Others see themselves in you before they see you at all. You hold space for revelation, even when the reflection is uncomfortable.",
-    prompt: "When did someone see a part of you that you hadn't yet named?",
-  },
-  {
-    id: "the-wanderer",
-    title: "The Wanderer",
-    archetype: "Seeker Between Worlds",
-    frontSymbol: "✦",
-    description:
-      "Home is a concept, not a place. You carry fragments of every story you've entered, belonging everywhere and nowhere simultaneously.",
-    prompt: "Which chapter of your life feels most like a foreign country?",
-  },
-  {
-    id: "the-alchemist",
-    title: "The Alchemist",
-    archetype: "Transformer of Experience",
-    frontSymbol: "☽",
-    description:
-      "Pain becomes prose. Loss becomes language. You transmute the raw material of living into something others can hold.",
-    prompt: "What wound became your most honest work?",
+      "I reflect what others cannot see in themselves. My strength is perception, but my weakness is absorbing what I witness.",
+    passiveEffect:
+      "Once exposed, one player must answer a question they have been avoiding all evening.",
+    featured: false,
   },
   {
     id: "the-oracle",
     title: "The Oracle",
-    archetype: "Voice of Unspoken Knowing",
-    frontSymbol: "◎",
+    subtitle: "Archetype",
     description:
-      "You speak in patterns others haven't learned to read. Your intuition arrives before evidence, and is rarely wrong.",
-    prompt: "What did you know before you could explain how?",
+      "I speak in patterns before proof arrives. My strength is intuition, but my weakness is being believed too late.",
+    passiveEffect:
+      "When revealed, you may ask the circle one question that cannot be deflected.",
+    featured: false,
+  },
+  {
+    id: "the-wanderer",
+    title: "The Wanderer",
+    subtitle: "Archetype",
+    description:
+      "I belong everywhere and nowhere. My strength is adaptability, but my weakness is never staying long enough to be known.",
+    passiveEffect:
+      "Once exposed, you may redirect the conversation to a player who has spoken least.",
+    featured: false,
   },
   {
     id: "the-threshold",
     title: "The Threshold",
-    archetype: "Guardian of Becoming",
-    frontSymbol: "⬡",
+    subtitle: "Archetype",
     description:
-      "You stand at doorways — between who someone was and who they might become. You do not push. You simply hold the door open.",
-    prompt: "Who held the door open for your last transformation?",
+      "I stand at the door between who you were and who you might become. My strength is patience, but my weakness is waiting forever.",
+    passiveEffect:
+      "When revealed, the circle must pause for one minute of silence before continuing.",
+    featured: false,
   },
 ];
 
@@ -69,7 +77,7 @@ export const stories = [
     author: "James K.",
     location: "Edinburgh",
     excerpt:
-      "My card was The Mirror. Three people described me in ways I'd never articulated. I left feeling seen in a language I didn't know I spoke.",
+      "I drew The Mirror. Three people described me in ways I'd never articulated. I left feeling seen in a language I didn't know I spoke.",
     tag: "Recognition",
   },
   {
@@ -113,9 +121,24 @@ export const testimonials = [
 
 export const symbols = [
   {
-    name: "The Unmasked Face",
+    name: "The Split Mask",
     meaning:
-      "Not the removal of disguise, but the moment of willing revelation — when truth is offered, not extracted.",
+      "Half revelation, half concealment — the central emblem of UNMASK. We are never fully one thing; identity is a dialogue between what we show and what we guard.",
+  },
+  {
+    name: "The Crown",
+    meaning:
+      "Authority earned through story, not status. In the circle, the one who speaks most truthfully holds the crown — regardless of who dealt the cards.",
+  },
+  {
+    name: "The All-Seeing Eye",
+    meaning:
+      "Witness without judgment. The eye does not expose — it attends. In UNMASK, to be seen is the highest form of respect.",
+  },
+  {
+    name: "The Sunburst",
+    meaning:
+      "The radiating moment of unmasking — when hidden identity meets the light of the circle and becomes part of the shared narrative.",
   },
   {
     name: "The Wax Seal",
@@ -123,14 +146,9 @@ export const symbols = [
       "Every story shared in UNMASK is sealed by consent. What is spoken in the circle remains sacred.",
   },
   {
-    name: "The Open Book",
+    name: "The Corner Filigree",
     meaning:
-      "Identity is not fixed. Like any good narrative, we are revised with every telling.",
-  },
-  {
-    name: "The Compass Rose",
-    meaning:
-      "The cards do not point you toward answers. They orient you toward the questions worth living inside.",
+      "Ornament as intention — the decorative borders on each card remind us that even play can be crafted with the care of a rare manuscript.",
   },
 ];
 
@@ -145,18 +163,18 @@ export const howToPlaySteps = [
     step: "II",
     title: "Receive Your Identity",
     description:
-      "Each player draws a card bearing a hidden archetype. This is not who you are — it is a lens through which others will discover you.",
+      "Each player draws an Identity Card bearing a hidden archetype. This is not who you are — it is a lens through which the circle will read you.",
   },
   {
     step: "III",
     title: "Read the Signs",
     description:
-      "Through prompts, questions, and careful observation, players interpret one another's cards — weaving narratives from gesture, word, and silence.",
+      "Through observation, questions, and intuition, players interpret one another's hidden identities — weaving narratives from gesture, word, and silence.",
   },
   {
     step: "IV",
     title: "Unmask",
     description:
-      "When the circle is ready, identities are revealed. What follows is not victory, but recognition — the oldest form of human magic.",
+      "When the circle is ready, identities are revealed. What follows is not victory, but recognition — the oldest form of human connection.",
   },
 ];

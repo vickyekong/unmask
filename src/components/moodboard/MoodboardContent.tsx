@@ -1,6 +1,8 @@
 "use client";
 
+import Image from "next/image";
 import { WaxSeal } from "@/components/ui/WaxSeal";
+import { UnmaskEmblem } from "@/components/ui/UnmaskEmblem";
 import { CopyButton } from "./CopyButton";
 import {
   brandColors,
@@ -544,19 +546,33 @@ export function MoodboardContent() {
           {/* Social card */}
           <MoodboardTile className="p-0 overflow-hidden min-h-[320px]" label="Social / Share Card">
             <div className="ink-surface p-8 h-full flex flex-col justify-between">
-              <p className="museum-label">A Literary Game of Hidden Identity</p>
+              <p className="museum-label">Reveal · Fate · Survive</p>
               <div>
-                <p className="font-heading text-4xl font-light text-aged-paper">
+                <UnmaskEmblem size={56} className="mx-auto mb-3" />
+                <p className="font-heading text-4xl font-light text-aged-paper text-center">
                   Un<span className="gold-foil italic">mask</span>
                 </p>
-                <p className="mt-3 font-body text-xs text-aged-paper/50 max-w-[200px]">
+                <p className="mt-3 font-body text-xs text-aged-paper/50 max-w-[200px] mx-auto text-center">
                   Every person is a library of untold stories.
                 </p>
               </div>
-              <p className="museum-label text-aged-paper/25">unmask.game</p>
+              <p className="museum-label text-aged-paper/25 text-center">unmask.game</p>
             </div>
           </MoodboardTile>
         </div>
+
+        <MoodboardTile className="mt-6 p-6" label="Identity Card · Design Reference">
+          <Image
+            src="/assets/identity-card-reference.png"
+            alt="UNMASK Identity Card — The Villain front and UNMASK emblem back"
+            width={1200}
+            height={800}
+            className="w-full h-auto rounded-sm"
+          />
+          <p className="mt-4 font-body text-xs text-aged-paper/40 text-center">
+            Primary product artifact · Aged parchment front · Deep ink back with split mask emblem
+          </p>
+        </MoodboardTile>
       </section>
 
       {/* ── GUIDELINES ── */}

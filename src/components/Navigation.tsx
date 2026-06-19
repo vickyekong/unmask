@@ -1,11 +1,13 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import { UnmaskEmblem } from "./ui/UnmaskEmblem";
 
 const navLinks = [
   { href: "#premise", label: "The Premise" },
   { href: "#how-to-play", label: "How To Play" },
   { href: "#world", label: "The World" },
+  { href: "#symbolism", label: "Symbolism" },
   { href: "#cards", label: "The Cards" },
   { href: "#stories", label: "Stories" },
   { href: "#circle", label: "Join The Circle" },
@@ -25,24 +27,24 @@ export function Navigation() {
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
         scrolled
-          ? "bg-deep-ink/90 backdrop-blur-md border-b border-burnished-gold/10 py-3"
+          ? "bg-deep-ink/92 backdrop-blur-md border-b border-burnished-gold/10 py-3"
           : "bg-transparent py-6"
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10">
-        <a
-          href="#"
-          className="font-heading text-2xl tracking-[0.35em] text-aged-paper uppercase"
-        >
-          Unmask
+        <a href="#" className="flex items-center gap-3 group">
+          <UnmaskEmblem size={28} className="opacity-70 group-hover:opacity-100 transition-opacity hidden sm:block" />
+          <span className="font-heading text-xl md:text-2xl tracking-[0.35em] text-aged-paper uppercase">
+            Unmask
+          </span>
         </a>
 
-        <ul className="hidden items-center gap-8 lg:flex">
+        <ul className="hidden items-center gap-6 xl:gap-8 lg:flex">
           {navLinks.map((link) => (
             <li key={link.href}>
               <a
                 href={link.href}
-                className="museum-label text-[0.6rem] text-aged-paper/60 transition-colors hover:text-burnished-gold"
+                className="museum-label text-[0.55rem] text-aged-paper/50 transition-colors hover:text-burnished-gold"
               >
                 {link.label}
               </a>

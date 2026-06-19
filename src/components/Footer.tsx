@@ -1,4 +1,5 @@
-import { WaxSeal } from "./ui/WaxSeal";
+import { brandTagline } from "@/lib/data";
+import { UnmaskEmblem } from "./ui/UnmaskEmblem";
 
 const footerLinks = [
   { href: "#premise", label: "The Premise" },
@@ -15,13 +16,13 @@ export function Footer() {
       <div className="mx-auto max-w-6xl">
         <div className="flex flex-col md:flex-row items-start md:items-center justify-between gap-10">
           <div className="flex items-center gap-5">
-            <WaxSeal size={48} />
+            <UnmaskEmblem size={48} />
             <div>
               <p className="font-heading text-xl tracking-[0.3em] uppercase text-aged-paper">
                 Unmask
               </p>
               <p className="mt-1 museum-label text-aged-paper/30">
-                A Literary Game of Hidden Identity
+                {brandTagline}
               </p>
             </div>
           </div>
