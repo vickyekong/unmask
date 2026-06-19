@@ -1,5 +1,8 @@
+import { Navigation } from "@/components/Navigation";
+import { Footer } from "@/components/Footer";
 import { MoodboardNav } from "@/components/moodboard/MoodboardNav";
 import { MoodboardContent } from "@/components/moodboard/MoodboardContent";
+import { Candlelight } from "@/components/effects/Candlelight";
 
 export const metadata = {
   title: "UNMASK — Brand Mood Board",
@@ -9,9 +12,14 @@ export const metadata = {
 
 export default function MoodboardPage() {
   return (
-    <div className="min-h-screen ink-surface">
-      <MoodboardNav />
-      <MoodboardContent />
-    </div>
+    <>
+      <Candlelight />
+      <Navigation />
+      <div className="min-h-screen ink-surface pt-[57px]">
+        <MoodboardNav />
+        <MoodboardContent />
+      </div>
+      <Footer />
+    </>
   );
 }

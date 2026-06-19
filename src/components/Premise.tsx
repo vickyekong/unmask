@@ -39,8 +39,8 @@ export function Premise() {
               </p>
               <p>
                 Each seeker receives a hidden identity: an archetype drawn from
-                the deep vocabulary of story — The Villain, The Mirror, The
-                Wanderer. These are not costumes. They are lenses, offered by
+                the deep vocabulary of story — The Narrator, The Villain, The
+                Witness, The Mentor, and seven others. These are not costumes. They are lenses, offered by
                 chance, interpreted by the circle.
               </p>
               <p>

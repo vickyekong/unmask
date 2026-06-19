@@ -20,7 +20,7 @@ const worldElements = [
     title: "The Codex",
     ref: "W-003",
     description:
-      "The complete collection of UNMASK archetypes — each one a character study, a psychological portrait rendered in the language of myth.",
+      "The complete collection of ten UNMASK archetypes — each one a character study, a psychological portrait rendered in the language of myth.",
     icon: "❧",
   },
   {

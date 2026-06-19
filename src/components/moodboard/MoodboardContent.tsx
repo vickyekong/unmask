@@ -229,7 +229,7 @@ export function MoodboardContent() {
             {[
               { size: "text-7xl", label: "Display", sample: "Unmask", class: "font-heading text-5xl md:text-7xl font-light" },
               { size: "text-4xl", label: "H2 Section", sample: "The Premise", class: "font-heading text-3xl md:text-4xl font-light" },
-              { size: "text-2xl", label: "H3 Card", sample: "The Archivist", class: "font-heading text-2xl" },
+              { size: "text-2xl", label: "H3 Card", sample: "The Narrator", class: "font-heading text-2xl" },
               { size: "text-lg", label: "Body Large", sample: "Every person wears a mask.", class: "font-body text-lg" },
               { size: "text-sm", label: "Body", sample: "Gather three to eight seekers in a space of quiet intention.", class: "font-body text-sm text-aged-paper/70" },
               { size: "text-xs", label: "Caption", sample: "Est. MMXXIV · A Literary Society", class: "museum-label" },
@@ -488,7 +488,7 @@ export function MoodboardContent() {
               <div className="absolute inset-3 border border-burnished-gold/15" />
               <div className="absolute inset-5 border border-burnished-gold/8" />
               <span className="font-heading text-3xl text-burnished-gold/60 block text-center mt-8">◈</span>
-              <p className="font-heading text-lg text-aged-paper text-center mt-4">The Archivist</p>
+              <p className="font-heading text-lg text-aged-paper text-center mt-4">The Villain</p>
             </div>
           </MoodboardTile>
 
@@ -535,11 +535,11 @@ export function MoodboardContent() {
           {/* Exhibition placard */}
           <MoodboardTile className="p-8 min-h-[320px] flex flex-col justify-center" label="Exhibition Placard">
             <p className="museum-label mb-2">Exhibit VII · Archetype Series</p>
-            <h3 className="font-heading text-2xl text-aged-paper">The Mirror</h3>
-            <p className="mt-1 font-body text-xs text-burnished-gold/60">Reflector of Hidden Selves</p>
+            <h3 className="font-heading text-2xl text-aged-paper">The Witness</h3>
+            <p className="mt-1 font-body text-xs text-burnished-gold/60">Observer of Hidden Truths</p>
             <p className="mt-4 font-body text-sm text-aged-paper/55 leading-relaxed">
-              Others see themselves in you before they see you at all.
-              You hold space for revelation.
+              I observe without intervening. My strength is clarity,
+              but my weakness is silence when speech is needed.
             </p>
           </MoodboardTile>
 

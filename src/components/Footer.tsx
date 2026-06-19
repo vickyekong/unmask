@@ -8,6 +8,7 @@ const footerLinks = [
   { href: "#cards", label: "The Cards" },
   { href: "#stories", label: "Stories" },
   { href: "#circle", label: "Join The Circle" },
+  { href: "/moodboard", label: "Mood Board" },
 ];
 
 export function Footer() {
@@ -33,7 +34,11 @@ export function Footer() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    className="museum-label text-[0.6rem] text-aged-paper/40 transition-colors hover:text-burnished-gold"
+                    className={`museum-label text-[0.6rem] transition-colors hover:text-burnished-gold ${
+                      link.href === "/moodboard"
+                        ? "text-burnished-gold/60"
+                        : "text-aged-paper/40"
+                    }`}
                   >
                     {link.label}
                   </a>
@@ -47,12 +52,6 @@ export function Footer() {
           <p className="font-body text-xs text-aged-paper/25">
             &copy; {new Date().getFullYear()} UNMASK. All stories reserved.
           </p>
-          <a
-            href="/moodboard"
-            className="museum-label text-[0.55rem] text-aged-paper/25 transition-colors hover:text-burnished-gold"
-          >
-            Brand Mood Board
-          </a>
           <p className="font-heading text-sm italic text-aged-paper/20">
             Read carefully. Speak truthfully. Unmask gently.
           </p>

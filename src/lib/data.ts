@@ -1,6 +1,16 @@
 export const brandTagline = "Reveal · Fate · Survive";
 
-export const cards = [
+export const archetypes = [
+  {
+    id: "the-narrator",
+    title: "The Narrator",
+    subtitle: "Archetype",
+    description:
+      "I hold the thread of every story told tonight. My strength is coherence, but my weakness is needing the last word.",
+    passiveEffect:
+      "When revealed, you may reframe the evening's events as a single opening chapter.",
+    featured: false,
+  },
   {
     id: "the-villain",
     title: "The Villain",
@@ -8,60 +18,93 @@ export const cards = [
     description:
       "I am ambitious and cunning. My strength is strategy, but my weakness is overconfidence.",
     passiveEffect:
-      "Once exposed, the opposing circle loses momentum — the room reads your intent before you speak it.",
+      "Once exposed, the opposing team loses 5Xp.",
     featured: true,
   },
   {
-    id: "the-archivist",
-    title: "The Archivist",
+    id: "the-witness",
+    title: "The Witness",
     subtitle: "Archetype",
     description:
-      "I preserve what others forget. My strength is memory, but my weakness is holding too tightly to the past.",
+      "I observe without intervening. My strength is clarity, but my weakness is silence when speech is needed.",
     passiveEffect:
-      "When revealed, you may recall one detail from earlier in the circle that others have overlooked.",
+      "When revealed, you may recount one moment from the circle that others have forgotten.",
     featured: false,
   },
   {
-    id: "the-mirror",
-    title: "The Mirror",
+    id: "the-joker",
+    title: "The Joker",
     subtitle: "Archetype",
     description:
-      "I reflect what others cannot see in themselves. My strength is perception, but my weakness is absorbing what I witness.",
+      "I dissolve tension with truth disguised as laughter. My strength is levity, but my weakness is deflection.",
     passiveEffect:
-      "Once exposed, one player must answer a question they have been avoiding all evening.",
+      "Once exposed, the circle must answer one question only you are allowed to ask — however absurd.",
     featured: false,
   },
   {
-    id: "the-oracle",
-    title: "The Oracle",
+    id: "the-mentor",
+    title: "The Mentor",
     subtitle: "Archetype",
     description:
-      "I speak in patterns before proof arrives. My strength is intuition, but my weakness is being believed too late.",
+      "I guide without commanding. My strength is wisdom, but my weakness is believing I always know the way.",
     passiveEffect:
-      "When revealed, you may ask the circle one question that cannot be deflected.",
+      "When revealed, you may offer one piece of counsel that the circle must sit with before continuing.",
     featured: false,
   },
   {
-    id: "the-wanderer",
-    title: "The Wanderer",
+    id: "the-hero",
+    title: "The Hero",
     subtitle: "Archetype",
     description:
-      "I belong everywhere and nowhere. My strength is adaptability, but my weakness is never staying long enough to be known.",
+      "I rise when others hesitate. My strength is courage, but my weakness is carrying burdens that are not mine.",
     passiveEffect:
-      "Once exposed, you may redirect the conversation to a player who has spoken least.",
+      "Once exposed, you may redirect the circle's attention to a truth that has been avoided.",
     featured: false,
   },
   {
-    id: "the-threshold",
-    title: "The Threshold",
+    id: "the-outcast",
+    title: "The Outcast",
     subtitle: "Archetype",
     description:
-      "I stand at the door between who you were and who you might become. My strength is patience, but my weakness is waiting forever.",
+      "I stand apart by nature, not by choice. My strength is independence, but my weakness is believing belonging is impossible.",
     passiveEffect:
-      "When revealed, the circle must pause for one minute of silence before continuing.",
+      "When revealed, the circle must acknowledge one thing they have left unsaid to you.",
     featured: false,
   },
-];
+  {
+    id: "the-trickster",
+    title: "The Trickster",
+    subtitle: "Archetype",
+    description:
+      "I unsettle certainty to reveal what lies beneath. My strength is disruption, but my weakness is chaos for its own sake.",
+    passiveEffect:
+      "Once exposed, you may swap two assumptions the circle has made about tonight's identities.",
+    featured: false,
+  },
+  {
+    id: "the-magician",
+    title: "The Magician",
+    subtitle: "Archetype",
+    description:
+      "I transform the ordinary into the extraordinary. My strength is vision, but my weakness is believing the illusion is real.",
+    passiveEffect:
+      "When revealed, you may introduce one new question that reframes the entire circle.",
+    featured: false,
+  },
+  {
+    id: "the-lover",
+    title: "The Lover",
+    subtitle: "Archetype",
+    description:
+      "I feel deeply and without apology. My strength is devotion, but my weakness is losing myself in another's story.",
+    passiveEffect:
+      "Once exposed, the circle must share one thing they admire about another player — without irony.",
+    featured: false,
+  },
+] as const;
+
+/** @deprecated Use `archetypes` — kept as alias for card components */
+export const cards = archetypes;
 
 export const stories = [
   {
@@ -77,7 +120,7 @@ export const stories = [
     author: "James K.",
     location: "Edinburgh",
     excerpt:
-      "I drew The Mirror. Three people described me in ways I'd never articulated. I left feeling seen in a language I didn't know I spoke.",
+      "I drew The Witness. Three people described me in ways I'd never articulated. I left feeling seen in a language I didn't know I spoke.",
     tag: "Recognition",
   },
   {

@@ -2,7 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
-import { cards } from "@/lib/data";
+import { archetypes } from "@/lib/data";
 import { Reveal } from "./ui/Reveal";
 import { SectionFrame } from "./ui/SectionFrame";
 import {
@@ -19,7 +19,7 @@ function IdentityCard({
   passiveEffect,
   index,
   isVillain = false,
-}: (typeof cards)[0] & { index: number; isVillain?: boolean }) {
+}: (typeof archetypes)[number] & { index: number; isVillain?: boolean }) {
   const [flipped, setFlipped] = useState(false);
 
   return (
@@ -103,7 +103,7 @@ function IdentityCard({
                   <SplitMaskIcon size={28} />
                   <div>
                     <p className="font-heading text-[0.55rem] tracking-[0.2em] uppercase text-burnished-gold mb-1">
-                      When Revealed
+                      Passive Effect
                     </p>
                     <p className="font-body text-[0.65rem] leading-relaxed text-library-brown/70">
                       {passiveEffect}
@@ -213,8 +213,8 @@ export function CardShowcase() {
           </p>
         </Reveal>
 
-        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3">
-          {cards.map((card, i) => (
+        <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
+          {archetypes.map((card, i) => (
             <IdentityCard
               key={card.id}
               {...card}
@@ -226,7 +226,7 @@ export function CardShowcase() {
 
         <Reveal delay={0.5} className="mt-16 text-center">
           <p className="font-heading text-lg italic text-library-brown/50">
-            The complete Codex contains dozens of archetypes. These six are yours to discover first.
+            The Codex holds ten founding archetypes — each a portrait waiting to be recognized.
           </p>
         </Reveal>
       </SectionFrame>

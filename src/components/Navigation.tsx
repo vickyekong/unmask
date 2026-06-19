@@ -1,6 +1,8 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { UnmaskEmblem } from "./ui/UnmaskEmblem";
 
 const navLinks = [
@@ -16,6 +18,8 @@ const navLinks = [
 export function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
+  const pathname = usePathname();
+  const isMoodboard = pathname === "/moodboard";
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -23,41 +27,80 @@ export function Navigation() {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
+
   return (
     <header
       className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${
-        scrolled
+        scrolled || isMoodboard
           ? "bg-deep-ink/92 backdrop-blur-md border-b border-burnished-gold/10 py-3"
           : "bg-transparent py-6"
       }`}
     >
       <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10">
-        <a href="#" className="flex items-center gap-3 group">
+        <Link href="/" className="flex items-center gap-3 group">
           <UnmaskEmblem size={28} className="opacity-70 group-hover:opacity-100 transition-opacity hidden sm:block" />
           <span className="font-heading text-xl md:text-2xl tracking-[0.35em] text-aged-paper uppercase">
             Unmask
           </span>
-        </a>
+        </Link>
 
-        <ul className="hidden items-center gap-6 xl:gap-8 lg:flex">
-          {navLinks.map((link) => (
-            <li key={link.href}>
-              <a
-                href={link.href}
-                className="museum-label text-[0.55rem] text-aged-paper/50 transition-colors hover:text-burnished-gold"
+        {!isMoodboard && (
+          <ul className="hidden items-center gap-5 xl:gap-6 lg:flex">
+            {navLinks.map((link) => (
+              <li key={link.href}>
+                <a
+                  href={link.href}
+                  className="museum-label text-[0.55rem] text-aged-paper/50 transition-colors hover:text-burnished-gold"
+                >
+                  {link.label}
+                </a>
+              </li>
+            ))}
+            <li>
+              <Link
+                href="/moodboard"
+                className="museum-label text-[0.55rem] text-burnished-gold/70 transition-colors hover:text-burnished-gold border border-burnished-gold/25 px-3 py-1.5"
               >
-                {link.label}
-              </a>
+                Mood Board
+              </Link>
             </li>
-          ))}
-        </ul>
+          </ul>
+        )}
 
-        <a
-          href="#circle"
-          className="hidden lg:inline-flex items-center gap-2 border border-burnished-gold/40 px-5 py-2 font-body text-xs tracking-[0.2em] uppercase text-burnished-gold transition-all hover:bg-burnished-gold/10 hover:border-burnished-gold/70"
-        >
-          Enter The Archive
-        </a>
+        {isMoodboard && (
+          <div className="hidden lg:flex items-center gap-4">
+            <Link
+              href="/"
+              className="museum-label text-[0.55rem] text-aged-paper/40 transition-colors hover:text-burnished-gold"
+            >
+              ← The Archive
+            </Link>
+            <span className="museum-label text-[0.55rem] text-burnished-gold/60">
+              Brand Mood Board
+            </span>
+          </div>
+        )}
+
+        <div className="hidden lg:flex items-center gap-3">
+          {!isMoodboard ? (
+            <a
+              href="#circle"
+              className="inline-flex items-center gap-2 border border-burnished-gold/40 px-5 py-2 font-body text-xs tracking-[0.2em] uppercase text-burnished-gold transition-all hover:bg-burnished-gold/10 hover:border-burnished-gold/70"
+            >
+              Enter The Archive
+            </a>
+          ) : (
+            <Link
+              href="/"
+              className="inline-flex items-center gap-2 border border-burnished-gold/40 px-5 py-2 font-body text-xs tracking-[0.2em] uppercase text-burnished-gold transition-all hover:bg-burnished-gold/10 hover:border-burnished-gold/70"
+            >
+              Return to Site
+            </Link>
+          )}
+        </div>
 
         <button
           type="button"
@@ -80,17 +123,38 @@ export function Navigation() {
       {menuOpen && (
         <div className="lg:hidden border-t border-burnished-gold/10 bg-deep-ink/95 backdrop-blur-md">
           <ul className="flex flex-col gap-4 px-6 py-6">
-            {navLinks.map((link) => (
-              <li key={link.href}>
-                <a
-                  href={link.href}
+            {!isMoodboard &&
+              navLinks.map((link) => (
+                <li key={link.href}>
+                  <a
+                    href={link.href}
+                    className="museum-label text-aged-paper/70 hover:text-burnished-gold"
+                    onClick={() => setMenuOpen(false)}
+                  >
+                    {link.label}
+                  </a>
+                </li>
+              ))}
+            <li>
+              <Link
+                href="/moodboard"
+                className={`museum-label ${isMoodboard ? "text-burnished-gold" : "text-aged-paper/70 hover:text-burnished-gold"}`}
+                onClick={() => setMenuOpen(false)}
+              >
+                Mood Board
+              </Link>
+            </li>
+            {isMoodboard && (
+              <li>
+                <Link
+                  href="/"
                   className="museum-label text-aged-paper/70 hover:text-burnished-gold"
                   onClick={() => setMenuOpen(false)}
                 >
-                  {link.label}
-                </a>
+                  ← Return to Site
+                </Link>
               </li>
-            ))}
+            )}
           </ul>
         </div>
       )}
