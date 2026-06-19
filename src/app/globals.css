@@ -349,6 +349,14 @@ body {
   color: rgba(200, 155, 60, 0.7);
 }
 
+/* Compact nav links — single-line menu bar */
+.nav-link {
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-size: 0.6rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
 /* Identity card — matches physical design reference */
 .identity-card-front {
   border: 1.5px solid rgba(15, 23, 32, 0.85);

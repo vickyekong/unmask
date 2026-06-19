@@ -6,13 +6,13 @@ import { usePathname } from "next/navigation";
 import { UnmaskEmblem } from "./ui/UnmaskEmblem";
 
 const navLinks = [
-  { href: "#premise", label: "The Premise" },
-  { href: "#how-to-play", label: "How To Play" },
-  { href: "#world", label: "The World" },
-  { href: "#symbolism", label: "Symbolism" },
-  { href: "#cards", label: "The Cards" },
-  { href: "#stories", label: "Stories" },
-  { href: "#circle", label: "Join The Circle" },
+  { href: "#premise", label: "The Premise", short: "Premise" },
+  { href: "#how-to-play", label: "How To Play", short: "Play" },
+  { href: "#world", label: "The World", short: "World" },
+  { href: "#symbolism", label: "Symbolism", short: "Symbols" },
+  { href: "#cards", label: "The Cards", short: "Cards" },
+  { href: "#stories", label: "Stories", short: "Stories" },
+  { href: "#circle", label: "Join The Circle", short: "Circle" },
 ];
 
 export function Navigation() {
@@ -39,72 +39,73 @@ export function Navigation() {
           : "bg-transparent py-6"
       }`}
     >
-      <nav className="mx-auto flex max-w-7xl items-center justify-between px-6 lg:px-10">
-        <Link href="/" className="flex items-center gap-3 group">
-          <UnmaskEmblem size={28} className="opacity-70 group-hover:opacity-100 transition-opacity hidden sm:block" />
-          <span className="font-heading text-xl md:text-2xl tracking-[0.35em] text-aged-paper uppercase">
+      <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 lg:px-6">
+        <Link href="/" className="flex items-center gap-2 group shrink-0">
+          <UnmaskEmblem size={24} className="opacity-70 group-hover:opacity-100 transition-opacity hidden md:block" />
+          <span className="font-heading text-lg lg:text-xl tracking-[0.25em] text-aged-paper uppercase">
             Unmask
           </span>
         </Link>
 
         {!isMoodboard && (
-          <ul className="hidden items-center gap-5 xl:gap-6 lg:flex">
+          <ul className="hidden lg:flex items-center gap-3 xl:gap-4 flex-1 justify-center min-w-0">
             {navLinks.map((link) => (
-              <li key={link.href}>
+              <li key={link.href} className="shrink-0">
                 <a
                   href={link.href}
-                  className="museum-label text-[0.55rem] text-aged-paper/50 transition-colors hover:text-burnished-gold"
+                  className="nav-link text-aged-paper/50 transition-colors hover:text-burnished-gold whitespace-nowrap"
+                  title={link.label}
                 >
-                  {link.label}
+                  {link.short}
                 </a>
               </li>
             ))}
-            <li>
+            <li className="shrink-0">
               <Link
                 href="/moodboard"
-                className="museum-label text-[0.55rem] text-burnished-gold/70 transition-colors hover:text-burnished-gold border border-burnished-gold/25 px-3 py-1.5"
+                className="nav-link text-burnished-gold/70 transition-colors hover:text-burnished-gold border border-burnished-gold/25 px-2 py-1 whitespace-nowrap"
               >
-                Mood Board
+                Mood
               </Link>
             </li>
           </ul>
         )}
 
         {isMoodboard && (
-          <div className="hidden lg:flex items-center gap-4">
+          <div className="hidden lg:flex items-center gap-3 flex-1 justify-center">
             <Link
               href="/"
-              className="museum-label text-[0.55rem] text-aged-paper/40 transition-colors hover:text-burnished-gold"
+              className="nav-link text-aged-paper/40 transition-colors hover:text-burnished-gold whitespace-nowrap"
             >
-              ← The Archive
+              ← Archive
             </Link>
-            <span className="museum-label text-[0.55rem] text-burnished-gold/60">
-              Brand Mood Board
+            <span className="nav-link text-burnished-gold/60 whitespace-nowrap">
+              Mood Board
             </span>
           </div>
         )}
 
-        <div className="hidden lg:flex items-center gap-3">
+        <div className="hidden lg:flex items-center shrink-0">
           {!isMoodboard ? (
             <a
               href="#circle"
-              className="inline-flex items-center gap-2 border border-burnished-gold/40 px-5 py-2 font-body text-xs tracking-[0.2em] uppercase text-burnished-gold transition-all hover:bg-burnished-gold/10 hover:border-burnished-gold/70"
+              className="inline-flex items-center border border-burnished-gold/40 px-3 py-1.5 font-body text-[0.6rem] tracking-[0.15em] uppercase text-burnished-gold transition-all hover:bg-burnished-gold/10 hover:border-burnished-gold/70 whitespace-nowrap"
             >
-              Enter The Archive
+              Enter
             </a>
           ) : (
             <Link
               href="/"
-              className="inline-flex items-center gap-2 border border-burnished-gold/40 px-5 py-2 font-body text-xs tracking-[0.2em] uppercase text-burnished-gold transition-all hover:bg-burnished-gold/10 hover:border-burnished-gold/70"
+              className="inline-flex items-center border border-burnished-gold/40 px-3 py-1.5 font-body text-[0.6rem] tracking-[0.15em] uppercase text-burnished-gold transition-all hover:bg-burnished-gold/10 hover:border-burnished-gold/70 whitespace-nowrap"
             >
-              Return to Site
+              Return
             </Link>
           )}
         </div>
 
         <button
           type="button"
-          className="lg:hidden flex flex-col gap-1.5 p-2"
+          className="lg:hidden flex flex-col gap-1.5 p-2 shrink-0"
           onClick={() => setMenuOpen(!menuOpen)}
           aria-label="Toggle menu"
         >

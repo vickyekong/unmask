@@ -15,7 +15,7 @@ export default function MoodboardPage() {
     <>
       <Candlelight />
       <Navigation />
-      <div className="min-h-screen ink-surface pt-[57px]">
+      <div className="min-h-screen ink-surface pt-[49px]">
         <MoodboardNav />
         <MoodboardContent />
       </div>
