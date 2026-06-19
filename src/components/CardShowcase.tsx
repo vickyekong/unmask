@@ -14,12 +14,12 @@ import {
 
 function CardLabel({ children }: { children: React.ReactNode }) {
   return (
-    <div className="flex items-center justify-center gap-2 mb-2">
-      <span className="text-burnished-gold/40 text-[0.45rem]">◇</span>
-      <p className="font-heading text-[0.5rem] tracking-[0.25em] uppercase text-library-brown/45">
+    <div className="flex items-center justify-center gap-1.5 mb-1">
+      <span className="text-burnished-gold/40 text-[0.4rem] leading-none">◇</span>
+      <p className="font-heading text-[0.48rem] tracking-[0.22em] uppercase text-library-brown/45 leading-none">
         {children}
       </p>
-      <span className="text-burnished-gold/40 text-[0.45rem]">◇</span>
+      <span className="text-burnished-gold/40 text-[0.4rem] leading-none">◇</span>
     </div>
   );
 }
@@ -33,12 +33,13 @@ function IdentityCard({
   isVillain = false,
 }: (typeof archetypes)[number] & { isVillain?: boolean }) {
   const [flipped, setFlipped] = useState(false);
-  const shortTitle = title.replace(/^The /, "").toUpperCase();
+  const displayTitle = title.toUpperCase();
+  const initial = title.replace(/^The /, "").charAt(0);
 
   return (
-    <div className="mx-auto w-full max-w-[220px]">
+    <div className="mx-auto w-full max-w-[236px]">
       <div
-        className="card-flip-scene aspect-[2.5/3.5] w-full cursor-pointer group"
+        className="card-flip-scene aspect-[5/7] w-full cursor-pointer group"
         onClick={() => setFlipped((f) => !f)}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") {
@@ -54,67 +55,63 @@ function IdentityCard({
           {/* ── FRONT ── */}
           <div className="card-flip-face identity-card-front parchment rounded-md">
             <div className="card-inner-border" />
-            <CardCornerFiligree className="top-1.5 left-1.5" />
-            <CardCornerFiligree className="top-1.5 right-1.5 rotate-90" />
-            <CardCornerFiligree className="bottom-1.5 left-1.5 -rotate-90" />
-            <CardCornerFiligree className="bottom-1.5 right-1.5 rotate-180" />
+            <CardCornerFiligree className="top-1 left-1 w-7 h-7" />
+            <CardCornerFiligree className="top-1 right-1 w-7 h-7 rotate-90" />
+            <CardCornerFiligree className="bottom-1 left-1 w-7 h-7 -rotate-90" />
+            <CardCornerFiligree className="bottom-1 right-1 w-7 h-7 rotate-180" />
 
-            <div className="relative z-10 flex h-full flex-col px-4 py-5">
+            <div className="identity-card-body">
               {/* Header */}
-              <div className="text-center shrink-0">
-                <p className="font-heading text-[0.45rem] tracking-[0.35em] text-library-brown/40 mb-1.5">
+              <header className="identity-card-header">
+                <p className="font-heading text-[0.42rem] tracking-[0.32em] text-library-brown/40 mb-1 leading-none">
                   ✦ ✦ ✦
                 </p>
-                <h3 className="font-heading text-base font-semibold leading-tight tracking-wide text-deep-ink uppercase">
-                  {shortTitle}
+                <h3 className="font-heading text-[0.95rem] font-semibold leading-tight tracking-[0.06em] text-deep-ink">
+                  {displayTitle}
                 </h3>
-                <p className="font-heading text-[0.5rem] tracking-[0.3em] uppercase text-library-brown/50 mt-1">
+                <p className="font-heading text-[0.48rem] tracking-[0.28em] uppercase text-library-brown/50 mt-0.5 leading-none">
                   {subtitle}
                 </p>
-              </div>
+              </header>
 
               {/* Portrait */}
-              <div className="flex justify-center my-3 shrink-0">
-                <div className="relative flex h-[72px] w-[72px] items-center justify-center rounded-full border border-burnished-gold/40 bg-aged-paper/80">
-                  <span className="absolute -left-2.5 text-[0.45rem] text-burnished-gold/35">✦</span>
-                  <span className="absolute -right-2.5 text-[0.45rem] text-burnished-gold/35">✦</span>
-                  {isVillain ? (
-                    <div className="h-14 w-14 overflow-hidden rounded-full bg-gradient-to-b from-library-brown/25 to-deep-ink/15 flex items-end justify-center">
-                      <div className="h-10 w-9 rounded-t-full bg-deep-ink/55" />
-                    </div>
-                  ) : (
-                    <span className="font-heading text-2xl text-burnished-gold/35">
-                      {shortTitle.charAt(0)}
-                    </span>
-                  )}
-                </div>
+              <div className="identity-card-portrait-ring">
+                <span className="absolute -left-2 text-[0.4rem] text-burnished-gold/30 leading-none">✦</span>
+                <span className="absolute -right-2 text-[0.4rem] text-burnished-gold/30 leading-none">✦</span>
+                {isVillain ? (
+                  <div className="flex h-12 w-12 items-end justify-center overflow-hidden rounded-full bg-gradient-to-b from-library-brown/20 to-deep-ink/10">
+                    <div className="h-8 w-7 rounded-t-full bg-deep-ink/50" />
+                  </div>
+                ) : (
+                  <span className="identity-card-portrait-letter">{initial}</span>
+                )}
               </div>
 
               {/* Description */}
-              <div className="flex-1 min-h-0">
+              <div className="identity-card-description">
                 <CardLabel>Description</CardLabel>
-                <p className="font-body text-[0.62rem] leading-[1.55] text-library-brown/75 italic line-clamp-4">
+                <p className="identity-card-quote font-body">
                   &ldquo;{description}&rdquo;
                 </p>
               </div>
 
               {/* Passive effect */}
-              <div className="mt-2 shrink-0 border-t border-library-brown/10 pt-2.5">
-                <div className="flex gap-2 items-start">
-                  <SplitMaskIcon size={22} uid={id} />
-                  <div className="min-w-0">
-                    <p className="font-heading text-[0.48rem] tracking-[0.18em] uppercase text-burnished-gold mb-0.5">
+              <div className="identity-card-effect">
+                <div className="flex items-start gap-1.5">
+                  <SplitMaskIcon size={18} uid={id} />
+                  <div className="min-w-0 flex-1">
+                    <p className="font-heading text-[0.44rem] tracking-[0.16em] uppercase text-burnished-gold leading-none mb-1">
                       Passive Effect
                     </p>
-                    <p className="font-body text-[0.58rem] leading-[1.45] text-library-brown/65 line-clamp-3">
+                    <p className="font-body text-[0.54rem] leading-[1.4] text-library-brown/65">
                       {passiveEffect}
                     </p>
                   </div>
                 </div>
               </div>
 
-              <div className="flex justify-center mt-2 shrink-0">
-                <AllSeeingEye size={14} />
+              <div className="flex justify-center pt-0.5">
+                <AllSeeingEye size={12} />
               </div>
             </div>
           </div>
@@ -122,32 +119,32 @@ function IdentityCard({
           {/* ── BACK ── */}
           <div className="card-flip-face card-flip-face-back identity-card-back rounded-md">
             <div className="card-inner-border" />
-            <CardCornerFiligree className="top-1.5 left-1.5 text-burnished-gold/25" />
-            <CardCornerFiligree className="top-1.5 right-1.5 rotate-90 text-burnished-gold/25" />
-            <CardCornerFiligree className="bottom-1.5 left-1.5 -rotate-90 text-burnished-gold/25" />
-            <CardCornerFiligree className="bottom-1.5 right-1.5 rotate-180 text-burnished-gold/25" />
+            <CardCornerFiligree className="top-1 left-1 w-7 h-7 text-burnished-gold/25" />
+            <CardCornerFiligree className="top-1 right-1 w-7 h-7 rotate-90 text-burnished-gold/25" />
+            <CardCornerFiligree className="bottom-1 left-1 w-7 h-7 -rotate-90 text-burnished-gold/25" />
+            <CardCornerFiligree className="bottom-1 right-1 w-7 h-7 rotate-180 text-burnished-gold/25" />
 
-            <div className="relative z-10 flex h-full flex-col items-center justify-between px-4 py-6">
-              <p className="font-heading text-[0.45rem] tracking-[0.35em] text-burnished-gold/30 shrink-0">
+            <div className="relative z-10 flex h-full flex-col items-center justify-between px-5 py-5">
+              <p className="font-heading text-[0.42rem] tracking-[0.32em] text-burnished-gold/30 leading-none">
                 ✦ ✦ ✦
               </p>
 
-              <div className="flex flex-col items-center justify-center flex-1 py-2">
-                <UnmaskEmblem size={72} uid={id} className="opacity-90" />
-                <h3 className="font-heading text-2xl tracking-[0.12em] gold-foil uppercase mt-3">
+              <div className="flex flex-col items-center justify-center flex-1 py-1">
+                <UnmaskEmblem size={68} uid={id} className="opacity-90" />
+                <h3 className="font-heading text-[1.35rem] tracking-[0.1em] gold-foil uppercase mt-2.5 leading-none">
                   Unmask
                 </h3>
-                <p className="font-heading text-[0.48rem] tracking-[0.28em] text-burnished-gold/60 mt-1.5 uppercase text-center">
+                <p className="font-heading text-[0.44rem] tracking-[0.24em] text-burnished-gold/60 mt-1.5 uppercase text-center leading-relaxed">
                   Reveal · Fate · Survive
                 </p>
               </div>
 
-              <div className="flex flex-col items-center gap-1.5 shrink-0">
-                <div className="h-px w-12 bg-burnished-gold/25" />
-                <p className="font-heading text-[0.45rem] tracking-[0.35em] text-burnished-gold/25">
+              <div className="flex flex-col items-center gap-1">
+                <div className="h-px w-10 bg-burnished-gold/25" />
+                <p className="font-heading text-[0.42rem] tracking-[0.32em] text-burnished-gold/25 leading-none">
                   ✦ ✦ ✦
                 </p>
-                <div className="h-px w-12 bg-burnished-gold/25" />
+                <div className="h-px w-10 bg-burnished-gold/25" />
               </div>
             </div>
           </div>

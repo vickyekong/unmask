@@ -129,7 +129,7 @@ export function AllSeeingEye({ size = 20 }: { size?: number }) {
 export function CardCornerFiligree({ className = "" }: { className?: string }) {
   return (
     <svg
-      className={`absolute w-8 h-8 text-burnished-gold/35 pointer-events-none ${className}`}
+      className={`absolute text-burnished-gold/35 pointer-events-none ${className}`}
       viewBox="0 0 40 40"
       fill="none"
       aria-hidden="true"
