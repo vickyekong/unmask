@@ -9,12 +9,12 @@ export function WaxSeal({ size = 80 }: { size?: number }) {
     >
       <defs>
         <radialGradient id="wax" cx="40%" cy="35%">
-          <stop offset="0%" stopColor="#8B2500" />
-          <stop offset="50%" stopColor="#6B1D00" />
-          <stop offset="100%" stopColor="#4A1200" />
+          <stop offset="0%" stopColor="#5A1838" />
+          <stop offset="50%" stopColor="#391023" />
+          <stop offset="100%" stopColor="#2A0B1A" />
         </radialGradient>
         <radialGradient id="waxHighlight" cx="30%" cy="25%">
-          <stop offset="0%" stopColor="rgba(255,200,150,0.3)" />
+          <stop offset="0%" stopColor="rgba(250,154,144,0.35)" />
           <stop offset="100%" stopColor="transparent" />
         </radialGradient>
       </defs>
@@ -33,7 +33,7 @@ export function WaxSeal({ size = 80 }: { size?: number }) {
         cy="50"
         r="28"
         fill="none"
-        stroke="rgba(200,155,60,0.5)"
+        stroke="rgba(28,108,97,0.6)"
         strokeWidth="0.8"
       />
       {/* Symbol */}
@@ -41,7 +41,7 @@ export function WaxSeal({ size = 80 }: { size?: number }) {
         x="50"
         y="56"
         textAnchor="middle"
-        fill="rgba(200,155,60,0.8)"
+        fill="rgba(250,154,144,0.9)"
         fontSize="22"
         fontFamily="serif"
       >

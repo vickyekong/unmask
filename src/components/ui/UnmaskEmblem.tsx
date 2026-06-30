@@ -21,12 +21,12 @@ export function UnmaskEmblem({
     >
       <defs>
         <linearGradient id={grad} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#E8C872" />
-          <stop offset="50%" stopColor="#C89B3C" />
-          <stop offset="100%" stopColor="#8B6914" />
+          <stop offset="0%" stopColor="#FA9A90" />
+          <stop offset="50%" stopColor="#1C6C61" />
+          <stop offset="100%" stopColor="#B9D0DF" />
         </linearGradient>
         <radialGradient id={burst} cx="50%" cy="50%" r="50%">
-          <stop offset="0%" stopColor="rgba(200,155,60,0.15)" />
+          <stop offset="0%" stopColor="rgba(28,108,97,0.2)" />
           <stop offset="100%" stopColor="transparent" />
         </radialGradient>
         <clipPath id={clip}>
@@ -58,7 +58,7 @@ export function UnmaskEmblem({
         opacity="0.9"
       />
 
-      <ellipse cx="60" cy="68" rx="22" ry="26" fill="#0F1720" />
+      <ellipse cx="60" cy="68" rx="22" ry="26" fill="#0F2744" />
       <path
         d="M38 68 C38 52, 48 44, 60 44 C72 44, 82 52, 82 68 C82 82, 72 92, 60 92 C48 92, 38 82, 38 68 Z"
         fill="none"
@@ -74,8 +74,8 @@ export function UnmaskEmblem({
         clipPath={`url(#${clip})`}
         opacity="0.85"
       />
-      <ellipse cx="52" cy="64" rx="4" ry="5" fill="#0F1720" />
-      <ellipse cx="68" cy="64" rx="4" ry="5" fill="#0F1720" />
+      <ellipse cx="52" cy="64" rx="4" ry="5" fill="#0F2744" />
+      <ellipse cx="68" cy="64" rx="4" ry="5" fill="#0F2744" />
     </svg>
   );
 }
@@ -83,23 +83,30 @@ export function UnmaskEmblem({
 export function SplitMaskIcon({ size = 24, uid = "default" }: { size?: number; uid?: string }) {
   const grad = `maskGold-${uid}`;
   return (
-    <svg width={size} height={size} viewBox="0 0 24 24" aria-hidden="true" className="shrink-0">
+    <svg
+      width={size}
+      height={size}
+      viewBox="0 0 24 24"
+      aria-hidden="true"
+      className="shrink-0 block overflow-visible"
+      style={{ width: size, height: size }}
+    >
       <defs>
         <linearGradient id={grad} x1="0%" y1="0%" x2="100%" y2="100%">
-          <stop offset="0%" stopColor="#E8C872" />
-          <stop offset="100%" stopColor="#C89B3C" />
+          <stop offset="0%" stopColor="#FA9A90" />
+          <stop offset="100%" stopColor="#1C6C61" />
         </linearGradient>
       </defs>
-      <circle cx="12" cy="12" r="11" fill="none" stroke="#C89B3C" strokeWidth="0.5" opacity="0.5" />
+      <circle cx="12" cy="12" r="11" fill="none" stroke="#1C6C61" strokeWidth="0.5" opacity="0.5" />
       <path
         d="M12 4 C16 4 19 7 19 12 C19 17 16 20 12 20 C8 20 5 17 5 12 C5 7 8 4 12 4 Z"
-        fill="#0F1720"
-        stroke="#C89B3C"
+        fill="#0F2744"
+        stroke="#1C6C61"
         strokeWidth="0.5"
       />
       <rect x="5" y="4" width="7" height="16" fill={`url(#${grad})`} opacity="0.8" />
-      <ellipse cx="9" cy="11" rx="1.5" ry="2" fill="#0F1720" />
-      <ellipse cx="15" cy="11" rx="1.5" ry="2" fill="#0F1720" />
+      <ellipse cx="9" cy="11" rx="1.5" ry="2" fill="#0F2744" />
+      <ellipse cx="15" cy="11" rx="1.5" ry="2" fill="#0F2744" />
     </svg>
   );
 }
@@ -114,14 +121,14 @@ export function AllSeeingEye({ size = 20 }: { size?: number }) {
           y1="10"
           x2="10"
           y2="2"
-          stroke="#C89B3C"
+          stroke="#1C6C61"
           strokeWidth="0.3"
           opacity="0.5"
           transform={`rotate(${i * 45} 10 10)`}
         />
       ))}
-      <ellipse cx="10" cy="10" rx="6" ry="4" fill="none" stroke="#C89B3C" strokeWidth="0.5" />
-      <circle cx="10" cy="10" r="2" fill="#C89B3C" />
+      <ellipse cx="10" cy="10" rx="6" ry="4" fill="none" stroke="#1C6C61" strokeWidth="0.5" />
+      <circle cx="10" cy="10" r="2" fill="#FA9A90" />
     </svg>
   );
 }

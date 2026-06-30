@@ -113,9 +113,20 @@ export function MoodboardContent() {
       <section id="colors" className="mb-24 scroll-mt-20">
         <SectionHeader
           number="01 · Color Palette"
-          title="Five colors. One atmosphere."
+          title="Six colors. One atmosphere."
           subtitle="Click any hex value to copy. Each color carries a narrative role — never used decoratively."
         />
+
+        <MoodboardTile className="mb-6 overflow-hidden p-0" label="Color Story">
+          <Image
+            src="/assets/unmask-color-story.png"
+            alt="UNMASK brand color palette — Dark Navy, Dark Forest, Deep Burgundy, Pine Teal, Salmon Glow, Sky Mist"
+            width={1200}
+            height={800}
+            className="w-full h-auto object-cover"
+            priority
+          />
+        </MoodboardTile>
 
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
           {brandColors.map((color) => (
@@ -148,13 +159,13 @@ export function MoodboardContent() {
           ))}
 
           {/* Gradient specimen */}
-          <MoodboardTile label="Gold Foil Gradient" className="p-5 flex flex-col justify-between min-h-[280px]">
-            <p className="font-heading text-4xl gold-foil mt-6">Burnished</p>
+          <MoodboardTile label="Teal & Salmon Foil" className="p-5 flex flex-col justify-between min-h-[280px]">
+            <p className="font-heading text-4xl gold-foil mt-6">Illuminated</p>
             <div className="space-y-2 mt-auto">
-              <CopyButton value="#A67C2E" label="#A67C2E · Shadow" />
-              <CopyButton value="#C89B3C" label="#C89B3C · Base" />
-              <CopyButton value="#E8C872" label="#E8C872 · Highlight" />
-              <CopyButton value="#8B6914" label="#8B6914 · Deep" />
+              <CopyButton value="#FA9A90" label="#FA9A90 · Salmon" />
+              <CopyButton value="#1C6C61" label="#1C6C61 · Pine Teal" />
+              <CopyButton value="#B9D0DF" label="#B9D0DF · Sky Mist" />
+              <CopyButton value="#193A31" label="#193A31 · Forest" />
             </div>
           </MoodboardTile>
         </div>
@@ -162,16 +173,16 @@ export function MoodboardContent() {
         {/* Color combinations */}
         <div className="mt-6 grid gap-4 md:grid-cols-3">
           <MoodboardTile label="Primary Pairing" className="p-6 ink-surface min-h-[140px] flex flex-col justify-end">
-            <p className="font-heading text-2xl text-aged-paper">Deep Ink + Aged Paper</p>
+            <p className="font-heading text-2xl text-aged-paper">Dark Navy + Sky Mist</p>
             <p className="font-body text-xs text-aged-paper/40 mt-1">Default reading environment</p>
           </MoodboardTile>
           <MoodboardTile label="Accent Pairing" dark={false} className="p-6 min-h-[140px] flex flex-col justify-end">
-            <p className="font-heading text-2xl text-library-brown">Aged Paper + Forest Ink</p>
-            <p className="font-body text-xs text-library-brown/50 mt-1">Manuscript sections</p>
+            <p className="font-heading text-2xl text-library-brown">Sky Mist + Deep Burgundy</p>
+            <p className="font-body text-xs text-library-brown/50 mt-1">Manuscript sections &amp; card fronts</p>
           </MoodboardTile>
           <MoodboardTile label="Highlight Pairing" className="p-6 bg-library-brown min-h-[140px] flex flex-col justify-end">
-            <p className="font-heading text-2xl text-burnished-gold">Library Brown + Gold</p>
-            <p className="font-body text-xs text-aged-paper/40 mt-1">Card faces &amp; seals</p>
+            <p className="font-heading text-2xl text-salmon">Burgundy + Salmon Glow</p>
+            <p className="font-body text-xs text-aged-paper/40 mt-1">Revelation moments &amp; wax seals</p>
           </MoodboardTile>
         </div>
       </section>
@@ -424,8 +435,8 @@ export function MoodboardContent() {
         {/* Visual mood strips */}
         <div className="mt-6 grid gap-2 grid-cols-6 h-24">
           {[
-            "#0F1720", "#1a2332", "#3E2E23", "#2D4D4B",
-            "#C89B3C", "#F2E9DC",
+            "#0F2744", "#193A31", "#391023",
+            "#1C6C61", "#FA9A90", "#B9D0DF",
           ].map((hex) => (
             <div
               key={hex}

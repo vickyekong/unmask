@@ -37,9 +37,9 @@ function IdentityCard({
   const initial = title.replace(/^The /, "").charAt(0);
 
   return (
-    <div className="mx-auto w-full max-w-[236px]">
+    <div className="mx-auto w-full max-w-[240px]">
       <div
-        className="card-flip-scene aspect-[5/7] w-full cursor-pointer group"
+        className="card-flip-scene aspect-[2.5/3.5] w-full cursor-pointer group"
         onClick={() => setFlipped((f) => !f)}
         onKeyDown={(e) => {
           if (e.key === "Enter" || e.key === " ") {
@@ -95,23 +95,17 @@ function IdentityCard({
                 </p>
               </div>
 
-              {/* Passive effect */}
+              {/* Passive effect — centered stack, separated from quote */}
               <div className="identity-card-effect">
-                <div className="flex items-start gap-1.5">
-                  <SplitMaskIcon size={18} uid={id} />
-                  <div className="min-w-0 flex-1">
-                    <p className="font-heading text-[0.44rem] tracking-[0.16em] uppercase text-burnished-gold leading-none mb-1">
-                      Passive Effect
-                    </p>
-                    <p className="font-body text-[0.54rem] leading-[1.4] text-library-brown/65">
-                      {passiveEffect}
-                    </p>
-                  </div>
+                <div className="identity-card-effect-icon">
+                  <SplitMaskIcon size={16} uid={id} />
                 </div>
+                <p className="identity-card-effect-label">Passive Effect</p>
+                <p className="identity-card-effect-text font-body">{passiveEffect}</p>
               </div>
 
-              <div className="flex justify-center pt-0.5">
-                <AllSeeingEye size={12} />
+              <div className="identity-card-footer">
+                <AllSeeingEye size={11} />
               </div>
             </div>
           </div>

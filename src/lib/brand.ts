@@ -1,38 +1,45 @@
 export const brandColors = [
   {
-    name: "Deep Ink",
-    role: "Primary background · Night reading rooms",
-    hex: "#0F1720",
-    rgb: "15, 23, 32",
-    usage: "Hero backgrounds, navigation, dark sections, primary text on light surfaces",
+    name: "Dark Navy",
+    role: "Primary background · Night archive",
+    hex: "#0F2744",
+    rgb: "15, 39, 68",
+    usage: "Hero backgrounds, navigation, card backs, dark sections",
   },
   {
-    name: "Library Brown",
-    role: "Structural warmth · Leather bindings",
-    hex: "#3E2E23",
-    rgb: "62, 46, 35",
-    usage: "Secondary backgrounds, card interiors, borders, wood-toned accents",
+    name: "Dark Forest",
+    role: "Secondary depth · Botanical shadow",
+    hex: "#193A31",
+    rgb: "25, 58, 49",
+    usage: "Secondary backgrounds, ambient glows, italic emphasis on light surfaces",
   },
   {
-    name: "Aged Paper",
+    name: "Deep Burgundy",
+    role: "Structural warmth · Manuscript ink",
+    hex: "#391023",
+    rgb: "57, 16, 35",
+    usage: "Body text on light surfaces, borders, card interiors, wax seals",
+  },
+  {
+    name: "Pine Teal",
+    role: "Primary accent · Foil & illumination",
+    hex: "#1C6C61",
+    rgb: "28, 108, 97",
+    usage: "Labels, borders, CTAs, icons, hover states, passive effect headers",
+  },
+  {
+    name: "Salmon Glow",
+    role: "Warm highlight · Revelation moments",
+    hex: "#FA9A90",
+    rgb: "250, 154, 144",
+    usage: "Foil gradients, selection highlights, warm accent pairings with burgundy",
+  },
+  {
+    name: "Sky Mist",
     role: "Primary light surface · Manuscript pages",
-    hex: "#F2E9DC",
-    rgb: "242, 233, 220",
-    usage: "Body text backgrounds, parchment sections, light-mode reading surfaces",
-  },
-  {
-    name: "Burnished Gold",
-    role: "Accent · Foil details & illumination",
-    hex: "#C89B3C",
-    rgb: "200, 155, 60",
-    usage: "Labels, borders, CTAs, foil text, wax seal accents, hover states",
-  },
-  {
-    name: "Forest Ink",
-    role: "Secondary accent · Botanical margins",
-    hex: "#2D4D4B",
-    rgb: "45, 77, 75",
-    usage: "Italic emphasis, secondary headings on light surfaces, ambient glow",
+    hex: "#B9D0DF",
+    rgb: "185, 208, 223",
+    usage: "Parchment sections, card fronts, light reading surfaces",
   },
 ] as const;
 
@@ -158,12 +165,12 @@ export const brandSymbols = [
 ] as const;
 
 export const brandDonts = [
-  { dont: "Neon or saturated gaming colors", do: "Deep ink, aged paper, burnished gold" },
+  { dont: "Neon or saturated gaming colors", do: "Dark navy, sky mist, pine teal & salmon glow" },
   { dont: "Cartoon illustrations or mascots", do: "Typography, symbols, and texture" },
   { dont: "Esports UI patterns (health bars, XP)", do: "Museum labels and manuscript layout" },
   { dont: "Fantasy combat imagery", do: "Literary archetypes and portraits" },
   { dont: "Bold sans-serif gaming logos", do: "Cormorant Garamond wordmark with letterspacing" },
-  { dont: "Playful rounded UI buttons", do: "Rectilinear borders with gold foil accents" },
+  { dont: "Playful rounded UI buttons", do: "Rectilinear borders with teal foil accents" },
 ] as const;
 
 export const spacingScale = [
